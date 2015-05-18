@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../app/vendors/bootstrap-bower/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="javascript" src="../app/vendors/bootstrap-bower/js/bootstrap.min.js"></script>
+    <script src="../app/vendors/angular/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form name="form" class="css-form" novalidate>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" ng-model="user.name" name="name" required="" />
+                <br>
+                <div ng-show="form.$submitted || form.name.$touched">
+                    <div role="alert" class="alert alert-danger" ng-show="form.name.$error.required">
+                        <span aria-hidden="true" class="glyphicon glyphicon-alert"></span> Please write your Name
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" ng-model="user.email" name="email" required="" />
+                <br>
+                <div ng-show="form.$submitted || form.email.$touched">
+                    <div role="alert" class="alert alert-danger" ng-show="form.email.$error.required">
+                        <span aria-hidden="true" class="glyphicon glyphicon-alert"></span> Please write your Email
+                    </div>
+                    <div role="alert" class="alert alert-danger" ng-show="form.email.$error.email">
+                        <span aria-hidden="true" class="glyphicon glyphicon-alert"></span> Please write a valid Email
+                    </div>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="user.agree" name="userAgree" required> Accept Terms</label>
+            </div>
+            <div ng-show="form.$submitted || form.userAgree.$touched">
+                <div role="alert" class="alert alert-danger" ng-show="form.userAgree.$error.required">
+                    <span aria-hidden="true" class="glyphicon glyphicon-alert"></span> Please accept the terms.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
